@@ -52,15 +52,6 @@ const AuctionTable = ({ auctions, onEdit, onView }) => {
     }
   };
 
-  const handleAction = (action, auction) => {
-    setOpenMenuId(null);
-    if (action === 'edit' && onEdit) {
-      onEdit(auction);
-    } else if (action === 'view' && onView) {
-      onView(auction);
-    }
-  };
-
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
       <div className="overflow-x-auto">

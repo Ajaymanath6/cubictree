@@ -11,7 +11,6 @@ import FunnelSimpleIcon from 'remixicon-react/Filter3LineIcon';
  */
 const AuctionsPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [statusFilter, setStatusFilter] = useState('All');
   const [showFilterDropdown, setShowFilterDropdown] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState([]);
 

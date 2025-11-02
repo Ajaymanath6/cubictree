@@ -9,10 +9,9 @@ import TimeLineIcon from 'remixicon-react/TimeLineIcon';
  * AdCard - Card component for displaying ad publishing information
  * @param {Object} props
  * @param {Object} props.ad - Ad object with title, status, linkedAuction, publishDate, imageUrl
- * @param {Function} props.onPreview - Preview action handler
  * @param {Function} props.onEdit - Edit action handler
  */
-const AdCard = ({ ad, onPreview, onEdit }) => {
+const AdCard = ({ ad, onEdit }) => {
   return (
     <div 
       className="bg-white rounded-lg border hover:shadow-md transition-shadow cursor-pointer flex flex-col"
@@ -139,7 +138,6 @@ AdCard.propTypes = {
     publishDate: PropTypes.string.isRequired,
     imageUrl: PropTypes.string,
   }).isRequired,
-  onPreview: PropTypes.func,
   onEdit: PropTypes.func,
 };
 

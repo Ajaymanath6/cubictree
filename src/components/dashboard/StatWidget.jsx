@@ -8,15 +8,12 @@ import { Card } from '../common';
  * @param {string} props.title - The title/label of the stat
  * @param {string|number} props.value - The stat value to display
  * @param {React.ComponentType} props.icon - Remix Icon component
- * @param {string} props.iconBgColor - Background color class for icon (e.g., 'bg-blue-100')
- * @param {string} props.iconColor - Text color class for icon (e.g., 'text-blue-600')
  */
 const StatWidget = ({ 
   title, 
   value, 
+  // eslint-disable-next-line no-unused-vars
   icon: Icon, 
-  iconBgColor = '#073370', 
-  iconColor = '#ffffff',
   valueByPeriod = {}
 }) => {
   const [selectedPeriod, setSelectedPeriod] = useState('Week');
@@ -163,8 +160,6 @@ StatWidget.propTypes = {
   title: PropTypes.string.isRequired,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   icon: PropTypes.elementType.isRequired,
-  iconBgColor: PropTypes.string,
-  iconColor: PropTypes.string,
   valueByPeriod: PropTypes.shape({
     D: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     Week: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
