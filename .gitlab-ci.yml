@@ -7,7 +7,7 @@ image: node:18
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
-    - cbp-client/node_modules/
+    - node_modules/
 
 # Define stages
 stages:
@@ -18,7 +18,6 @@ stages:
 build:
   stage: build
   script:
-    - cd cbp-client
     - echo "Installing dependencies..."
     - npm ci --prefer-offline --no-audit
     - echo "Building application..."
@@ -27,7 +26,7 @@ build:
     - ls -la dist/
   artifacts:
     paths:
-      - cbp-client/dist/
+      - dist/
     expire_in: 1 hour
   only:
     - main
@@ -41,7 +40,7 @@ pages:
   script:
     - echo "Preparing for deployment..."
     - mkdir -p public
-    - cp -r cbp-client/dist/* public/
+    - cp -r dist/* public/
     - echo "Creating .nojekyll file to prevent Jekyll processing..."
     - touch public/.nojekyll
     - echo "Deployment prepared"
