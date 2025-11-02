@@ -1,21 +1,18 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
 
-// Get base path from Vite
-const base = import.meta.env.BASE_URL
-
-// Debug logging (will be removed in production minification)
+// HashRouter is used for GitLab Pages - no server configuration needed
+// URLs will use hash: https://mandal-minds.gitlab.io/cubictree/#/dashboard
 console.log('CBP App Initializing...')
-console.log('Base URL:', base)
-console.log('Current Path:', window.location.pathname)
+console.log('Base URL:', import.meta.env.BASE_URL)
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter basename={base}>
+    <HashRouter>
       <App />
-    </BrowserRouter>
+    </HashRouter>
   </StrictMode>,
 )
