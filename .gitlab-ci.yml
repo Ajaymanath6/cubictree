@@ -41,8 +41,6 @@ pages:
     - echo "Preparing for deployment..."
     - mkdir -p public
     - cp -r dist/* public/
-    - echo "Copying 404.html for SPA routing..."
-    - cp dist/index.html public/404.html 2>/dev/null || cp dist/index.html public/404.html
     - echo "Creating .nojekyll file to prevent Jekyll processing..."
     - touch public/.nojekyll
     - echo "Deployment prepared"
