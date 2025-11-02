@@ -1,4 +1,3 @@
-# GitLab Pages deployment for Vite React app
 image: node:18
 
 cache:
@@ -9,7 +8,9 @@ pages:
   script:
     - npm install
     - npm run build
+    - rm -rf public
     - cp -r dist public
+    - ls -la public
   artifacts:
     paths:
       - public
