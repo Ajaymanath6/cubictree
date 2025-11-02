@@ -1,0 +1,58 @@
+# GitLab CI/CD Configuration for Vite React App
+# This configuration builds and deploys to GitLab Pages
+
+image: node:18
+
+# Cache node_modules for faster builds
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - cbp-client/node_modules/
+
+# Define stages
+stages:
+  - build
+  - deploy
+
+# Build job
+build:
+  stage: build
+  script:
+    - cd cbp-client
+    - echo "Installing dependencies..."
+    - npm ci --prefer-offline --no-audit
+    - echo "Building application..."
+    - NODE_ENV=production npm run build
+    - echo "Build completed successfully"
+    - ls -la dist/
+  artifacts:
+    paths:
+      - cbp-client/dist/
+    expire_in: 1 hour
+  only:
+    - main
+    - master
+
+# Deploy to GitLab Pages
+pages:
+  stage: deploy
+  dependencies:
+    - build
+  script:
+    - echo "Preparing for deployment..."
+    - mkdir -p public
+    - cp -r cbp-client/dist/* public/
+    - echo "Creating .nojekyll file to prevent Jekyll processing..."
+    - touch public/.nojekyll
+    - echo "Deployment prepared"
+    - ls -la public/
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
+    - master
+  environment:
+    name: production
+    url: https://$CI_PROJECT_NAMESPACE.gitlab.io/$CI_PROJECT_NAME
+
