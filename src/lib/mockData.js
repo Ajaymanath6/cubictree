@@ -33,6 +33,15 @@ export const mockDashboardData = {
       iconBgColor: 'bg-purple-100',
       iconColor: 'text-purple-600',
     },
+    {
+      id: 4,
+      title: 'Pending Approvals',
+      value: 7,
+      valueByPeriod: { D: 1, Week: 7, M: 23 },
+      icon: 'alert',
+      iconBgColor: 'bg-yellow-100',
+      iconColor: 'text-yellow-600',
+    },
   ],
   tasks: [
     { id: 1, text: "Approve Ad for 'Downtown Condo'", alert: true, time: '2 hours ago' },
