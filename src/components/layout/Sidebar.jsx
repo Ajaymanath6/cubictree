@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import DashboardLineIcon from 'remixicon-react/DashboardLineIcon';
 import AuctionLineIcon from 'remixicon-react/AuctionLineIcon';
-import Speaker2LineIcon from 'remixicon-react/Speaker2LineIcon';
+import BroadcastLineIcon from 'remixicon-react/BroadcastLineIcon';
 import LayoutRightLineIcon from 'remixicon-react/LayoutRightLineIcon';
 import LayoutLeftLineIcon from 'remixicon-react/LayoutLeftLineIcon';
 
@@ -19,7 +19,7 @@ const Sidebar = () => {
   const navLinks = [
     { to: '/', icon: DashboardLineIcon, label: 'Dashboard' },
     { to: '/auctions', icon: AuctionLineIcon, label: 'Auctions' },
-    { to: '/ads', icon: Speaker2LineIcon, label: 'Ad Publishing' },
+    { to: '/ads', icon: BroadcastLineIcon, label: 'Ad Publishing' },
   ];
 
   // Save collapsed state to localStorage whenever it changes

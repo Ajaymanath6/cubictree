@@ -199,7 +199,7 @@ const AuctionsPage = () => {
                       textAlign: 'left'
                     }}
                   >
-                    Actions
+                    Auction status
                   </div>
                   
                       {/* Filter Options */}
@@ -207,7 +207,7 @@ const AuctionsPage = () => {
                         { name: 'Active', color: 'rgba(103, 170, 56, 1)' },
                         { name: 'Processing', color: 'rgba(59, 130, 246, 1)' },
                         { name: 'Cancelled', color: 'rgba(239, 68, 68, 1)' },
-                        { name: 'On Hold', color: 'rgba(234, 179, 8, 1)' }
+                        { name: 'On Hold', color: '#A5A5A5' }
                       ].map((filter) => (
                         <label
                           key={filter.name}
