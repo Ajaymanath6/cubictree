@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button } from '../components/common';
+import { Button, Pagination } from '../components/common';
 import { AuctionTable } from '../components/auctions';
 import { mockAuctionsData } from '../lib/mockData';
 import AddLineIcon from 'remixicon-react/AddLineIcon';
@@ -276,192 +276,18 @@ const AuctionsPage = () => {
         onView={handleView}
       />
 
-      {/* Pagination */}
-      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mt-6">
-        {/* Left side - Results and Items per page */}
-        <div className="flex items-center gap-4 order-1 lg:order-1">
-          <div className="text-sm text-gray-600">
-            {filteredAuctions.length} Results
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-sm text-gray-600">Show</span>
-            <select
-              value={itemsPerPage}
-              onChange={(e) => handleItemsPerPageChange(Number(e.target.value))}
-              className="rounded-lg border border-gray-300 text-sm px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              style={{
-                height: '32px',
-                paddingLeft: '8px',
-                paddingRight: '24px',
-                backgroundColor: 'rgba(255, 255, 255, 1)',
-                border: '1px solid rgba(229, 229, 229, 1)',
-                fontSize: '14px',
-                fontWeight: 500
-              }}
-            >
-              <option value={10}>10</option>
-              <option value={20}>20</option>
-              <option value={50}>50</option>
-              <option value={100}>100</option>
-            </select>
-          </div>
+      {/* Pagination - Figma Design */}
+      {totalPages > 0 && (
+        <div className="mt-6">
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            totalItems={filteredAuctions.length}
+            itemsPerPage={itemsPerPage}
+            onPageChange={handlePageChange}
+          />
         </div>
-
-        {/* Right side - Page numbers */}
-        {totalPages > 1 && (
-          <div className="flex items-center gap-1 order-2 lg:order-2 ml-auto">
-            {/* First page */}
-            <button
-              onClick={() => handlePageChange(1)}
-              disabled={currentPage === 1}
-              className="px-2 py-1 rounded hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
-              style={{
-                minWidth: '32px',
-                height: '32px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}
-            >
-              <span style={{ fontSize: '14px' }}>|&lt;</span>
-            </button>
-
-            {/* Previous page */}
-            <button
-              onClick={() => handlePageChange(currentPage - 1)}
-              disabled={currentPage === 1}
-              className="px-2 py-1 rounded hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
-              style={{
-                minWidth: '32px',
-                height: '32px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}
-            >
-              <span style={{ fontSize: '14px' }}>&lt;</span>
-            </button>
-
-            {/* Page numbers */}
-            {(() => {
-              const pages = [];
-              const maxVisible = 5;
-              
-              if (totalPages <= maxVisible) {
-                // Show all pages
-                for (let i = 1; i <= totalPages; i++) {
-                  pages.push(i);
-                }
-              } else {
-                // Show first page
-                pages.push(1);
-                
-                if (currentPage > 3) {
-                  pages.push('...');
-                }
-                
-                // Show pages around current
-                const start = Math.max(2, currentPage - 1);
-                const end = Math.min(totalPages - 1, currentPage + 1);
-                
-                for (let i = start; i <= end; i++) {
-                  if (!pages.includes(i)) {
-                    pages.push(i);
-                  }
-                }
-                
-                if (currentPage < totalPages - 2) {
-                  pages.push('...');
-                }
-                
-                // Show last page
-                if (!pages.includes(totalPages)) {
-                  pages.push(totalPages);
-                }
-              }
-              
-              return pages.map((page, index) => {
-                if (page === '...') {
-                  return (
-                    <span
-                      key={`ellipsis-${index}`}
-                      className="px-2 py-1"
-                      style={{
-                        minWidth: '32px',
-                        height: '32px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        fontSize: '14px',
-                        color: 'rgba(87, 87, 87, 1)'
-                      }}
-                    >
-                      ...
-                    </span>
-                  );
-                }
-                
-                return (
-                  <button
-                    key={page}
-                    onClick={() => handlePageChange(page)}
-                    className={`px-2 py-1 rounded ${
-                      currentPage === page
-                        ? ''
-                        : 'hover:bg-gray-100'
-                    }`}
-                    style={{
-                      minWidth: '32px',
-                      height: '32px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontSize: '14px',
-                      fontWeight: currentPage === page ? 600 : 400,
-                      backgroundColor: currentPage === page ? '#073370' : 'transparent',
-                      color: currentPage === page ? 'rgba(255, 255, 255, 1)' : 'rgba(87, 87, 87, 1)'
-                    }}
-                  >
-                    {page}
-                  </button>
-                );
-              });
-            })()}
-
-            {/* Next page */}
-            <button
-              onClick={() => handlePageChange(currentPage + 1)}
-              disabled={currentPage === totalPages}
-              className="px-2 py-1 rounded hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
-              style={{
-                minWidth: '32px',
-                height: '32px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}
-            >
-              <span style={{ fontSize: '14px' }}>&gt;</span>
-            </button>
-
-            {/* Last page */}
-            <button
-              onClick={() => handlePageChange(totalPages)}
-              disabled={currentPage === totalPages}
-              className="px-2 py-1 rounded hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
-              style={{
-                minWidth: '32px',
-                height: '32px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}
-            >
-              <span style={{ fontSize: '14px' }}>&gt;|</span>
-            </button>
-          </div>
-        )}
-      </div>
+      )}
     </div>
   );
 };
