@@ -67,17 +67,111 @@ const AdPublishingPage = () => {
         </Button>
       </div>
 
-      {/* Tabs */}
-      <div className="flex gap-3 flex-wrap">
-        {tabs.map((tab) => {
-          const isActive = activeTab === tab;
-          const count = tab === 'All' ? mockAdsData.length : mockAdsData.filter(ad => ad.status === tab).length;
-          
-          return (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className="inline-flex items-center gap-2 transition-all rounded-lg"
+      {/* Tabs - Exact Figma Design */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          {tabs.map((tab) => {
+            const isActive = activeTab === tab;
+            const count = tab === 'All' ? mockAdsData.length : mockAdsData.filter(ad => ad.status === tab).length;
+            
+            return (
+              <div key={tab} style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                <button
+                  onClick={() => setActiveTab(tab)}
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '4px 6px',
+                    height: '32px',
+                    borderRadius: '7px',
+                    backgroundColor: isActive ? '#F5F5F5' : 'transparent',
+                    border: 'none',
+                    cursor: 'pointer',
+                    transition: 'background-color 0.2s'
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isActive) e.currentTarget.style.backgroundColor = '#FAFAFA';
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isActive) e.currentTarget.style.backgroundColor = 'transparent';
+                  }}
+                >
+                  <span style={{
+                    fontFamily: 'Inter',
+                    fontWeight: 600,
+                    fontSize: '16px',
+                    lineHeight: '1.4em',
+                    letterSpacing: '-0.01em',
+                    textAlign: 'center',
+                    color: '#1A1A1A'
+                  }}>
+                    {tab}
+                  </span>
+                  <div style={{
+                    position: 'relative',
+                    width: '14px',
+                    height: '14px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}>
+                    <div style={{
+                      width: '14px',
+                      height: '14px',
+                      borderRadius: '50%',
+                      backgroundColor: '#FFFFFF',
+                      position: 'absolute'
+                    }}></div>
+                    <span style={{
+                      fontFamily: 'Inter',
+                      fontWeight: 600,
+                      fontSize: '9px',
+                      lineHeight: '1.4em',
+                      letterSpacing: '-0.01em',
+                      textAlign: 'center',
+                      color: '#1A1A1A',
+                      position: 'relative',
+                      zIndex: 1
+                    }}>
+                      {count}
+                    </span>
+                  </div>
+                </button>
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  alignSelf: 'stretch',
+                  gap: '10px',
+                  padding: '4px 6px',
+                  backgroundColor: isActive ? '#073370' : 'transparent',
+                  height: '1px'
+                }}></div>
+              </div>
+            );
+          })}
+        </div>
+        <div style={{
+          width: '100%',
+          height: '1px',
+          backgroundColor: '#E5E5E5'
+        }}></div>
+      </div>
+
+      {/* Keep old tabs hidden for reference */}
+      <div className="hidden">
+        <div className="flex gap-3 flex-wrap">
+          {tabs.map((tab) => {
+            const isActive = activeTab === tab;
+            const count = tab === 'All' ? mockAdsData.length : mockAdsData.filter(ad => ad.status === tab).length;
+            
+            return (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className="inline-flex items-center gap-2 transition-all rounded-lg"
               style={{
                 padding: '8px 16px',
                 fontSize: '14px',
@@ -117,6 +211,7 @@ const AdPublishingPage = () => {
             </button>
           );
         })}
+        </div>
       </div>
 
       {/* Results Count */}
