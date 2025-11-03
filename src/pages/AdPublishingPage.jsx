@@ -147,7 +147,7 @@ const AdPublishingPage = () => {
                   gap: '10px',
                   padding: '4px 6px',
                   backgroundColor: isActive ? '#073370' : 'transparent',
-                  height: '1px'
+                  height: '3px'
                 }}></div>
               </div>
             );

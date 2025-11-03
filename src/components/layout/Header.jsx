@@ -59,11 +59,7 @@ const Header = () => {
           </div>
           <div className="hidden md:block">
             <p className="text-sm font-medium text-gray-900">John Doe</p>
-            <p className="text-xs text-gray-500">Bank Manager</p>
           </div>
-          <button className="p-1 text-gray-400 hover:text-gray-600 hidden md:block" aria-label="User menu">
-            <ArrowDownSLineIcon className="w-5 h-5" />
-          </button>
         </div>
       </div>
     </header>
