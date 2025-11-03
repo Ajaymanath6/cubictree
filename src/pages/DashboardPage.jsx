@@ -4,8 +4,9 @@ import { mockDashboardData } from '../lib/mockData';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import AuctionLineIcon from 'remixicon-react/AuctionLineIcon';
 import BroadcastLineIcon from 'remixicon-react/BroadcastLineIcon';
-import Building2LineIcon from 'remixicon-react/Building2LineIcon';
+import StackLineIcon from 'remixicon-react/StackLineIcon';
 import AlertLineIcon from 'remixicon-react/AlertLineIcon';
+import GroupLineIcon from 'remixicon-react/GroupLineIcon';
 
 /**
  * DashboardPage - Main dashboard view with KPIs, charts, and tasks
@@ -14,7 +15,7 @@ const DashboardPage = () => {
   const iconMap = {
     auction: AuctionLineIcon,
     broadcast: BroadcastLineIcon,
-    building: Building2LineIcon,
+    building: StackLineIcon,
     alert: AlertLineIcon,
   };
 
@@ -257,7 +258,7 @@ const DashboardPage = () => {
                   color: '#073370'
                 }}
               >
-                <BroadcastLineIcon style={{ width: '20px', height: '20px' }} />
+                <GroupLineIcon style={{ width: '20px', height: '20px' }} />
               </div>
               <p 
                 style={{
