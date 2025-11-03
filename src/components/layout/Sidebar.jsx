@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import DashboardLineIcon from 'remixicon-react/DashboardLineIcon';
 import AuctionLineIcon from 'remixicon-react/AuctionLineIcon';
-import BroadcastLineIcon from 'remixicon-react/BroadcastLineIcon';
-import MenuFoldLineIcon from 'remixicon-react/MenuFoldLineIcon';
-import MenuUnfoldLineIcon from 'remixicon-react/MenuUnfoldLineIcon';
+import Speaker2LineIcon from 'remixicon-react/Speaker2LineIcon';
+import LayoutRightLineIcon from 'remixicon-react/LayoutRightLineIcon';
+import LayoutLeftLineIcon from 'remixicon-react/LayoutLeftLineIcon';
 
 /**
  * Sidebar - Collapsible navigation sidebar with user preference persistence
@@ -19,7 +19,7 @@ const Sidebar = () => {
   const navLinks = [
     { to: '/', icon: DashboardLineIcon, label: 'Dashboard' },
     { to: '/auctions', icon: AuctionLineIcon, label: 'Auctions' },
-    { to: '/ads', icon: BroadcastLineIcon, label: 'Ad Publishing' },
+    { to: '/ads', icon: Speaker2LineIcon, label: 'Ad Publishing' },
   ];
 
   // Save collapsed state to localStorage whenever it changes
@@ -60,9 +60,9 @@ const Sidebar = () => {
           title={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
         >
           {isCollapsed ? (
-            <MenuUnfoldLineIcon className="w-5 h-5" />
+            <LayoutLeftLineIcon className="w-5 h-5" />
           ) : (
-            <MenuFoldLineIcon className="w-5 h-5" />
+            <LayoutRightLineIcon className="w-5 h-5" />
           )}
         </button>
       </div>
