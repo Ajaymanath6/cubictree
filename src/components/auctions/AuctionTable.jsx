@@ -343,11 +343,40 @@ const AuctionTable = ({ auctions, onEdit, onView }) => {
                       borderBottom: '1px solid rgba(229, 229, 229, 1)'
                     }}
                   >
-                    {auction.notice ? (
-                      <CheckLineIcon style={{ width: '20px', height: '20px', color: 'rgba(103, 170, 56, 1)' }} />
-                    ) : (
-                      <CloseLineIcon style={{ width: '20px', height: '20px', color: 'rgba(239, 68, 68, 1)' }} />
-                    )}
+                    <span 
+                      className="inline-flex items-center justify-center"
+                      style={{
+                        height: '24px',
+                        gap: '4px',
+                        borderRadius: '4px',
+                        borderWidth: '1px',
+                        paddingTop: '2px',
+                        paddingRight: '6px',
+                        paddingBottom: '2px',
+                        paddingLeft: '6px',
+                        backgroundColor: 'rgba(255, 255, 255, 1)',
+                        border: '1px solid rgba(229, 229, 229, 1)',
+                        fontSize: '14px',
+                        fontWeight: 500,
+                        lineHeight: '20px',
+                        letterSpacing: '-0.03em',
+                        textAlign: 'center',
+                        color: 'rgba(87, 87, 87, 1)',
+                        minWidth: '75px'
+                      }}
+                    >
+                      {auction.notice ? (
+                        <>
+                          <CheckLineIcon style={{ width: '14px', height: '14px', color: 'rgba(103, 170, 56, 1)' }} />
+                          Yes
+                        </>
+                      ) : (
+                        <>
+                          <CloseLineIcon style={{ width: '14px', height: '14px', color: 'rgba(239, 68, 68, 1)' }} />
+                          No
+                        </>
+                      )}
+                    </span>
                   </td>
                   <td 
                     className="text-center"
