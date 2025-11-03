@@ -5,7 +5,7 @@ import CheckboxCircleLineIcon from 'remixicon-react/CheckboxCircleLineIcon';
 import Notification4LineIcon from 'remixicon-react/Notification4LineIcon';
 import FullscreenLineIcon from 'remixicon-react/FullscreenLineIcon';
 import AuctionLineIcon from 'remixicon-react/AuctionLineIcon';
-import Building2LineIcon from 'remixicon-react/Building2LineIcon';
+import StackLineIcon from 'remixicon-react/StackLineIcon';
 
 /**
  * TaskList - Display a list of tasks or alerts
@@ -28,7 +28,7 @@ const TaskList = ({ title, items }) => {
     } else if (item.text.toLowerCase().includes('auction') || item.text.toLowerCase().includes('bid')) {
       return AuctionLineIcon;
     } else if (item.text.toLowerCase().includes('asset')) {
-      return Building2LineIcon;
+      return StackLineIcon;
     } else {
       return MegaphoneSVG;
     }

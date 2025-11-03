@@ -77,11 +77,12 @@ const AuctionsPage = () => {
           <h1 
             className="font-bold"
             style={{
-              fontSize: '20px',
-              fontWeight: 700,
-              lineHeight: '28px',
-              letterSpacing: '-0.03em',
-              color: 'rgba(26, 26, 26, 1)'
+              fontFamily: 'Inter',
+              fontSize: '26px',
+              fontWeight: 600,
+              lineHeight: '1.2',
+              letterSpacing: '-0.04em',
+              color: '#001A31'
             }}
           >
             Auctions
@@ -89,11 +90,12 @@ const AuctionsPage = () => {
           <p 
             className="mt-1"
             style={{
+              fontFamily: 'Inter',
               fontSize: '16px',
               fontWeight: 400,
-              lineHeight: '24px',
-              letterSpacing: '-0.03em',
-              color: 'rgba(87, 87, 87, 1)'
+              lineHeight: '1.2',
+              letterSpacing: '-0.04em',
+              color: '#575757'
             }}
           >
             Manage and monitor all digital asset auctions

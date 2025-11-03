@@ -6,6 +6,7 @@ import AuctionLineIcon from 'remixicon-react/AuctionLineIcon';
 import BroadcastLineIcon from 'remixicon-react/BroadcastLineIcon';
 import StackLineIcon from 'remixicon-react/StackLineIcon';
 import Building2LineIcon from 'remixicon-react/Building2LineIcon';
+import CurrencyLineIcon from 'remixicon-react/CurrencyLineIcon';
 import AlertLineIcon from 'remixicon-react/AlertLineIcon';
 import GroupLineIcon from 'remixicon-react/GroupLineIcon';
 
@@ -27,11 +28,12 @@ const DashboardPage = () => {
         <h1 
           className="font-bold"
           style={{
-            fontSize: '20px',
-            fontWeight: 700,
-            lineHeight: '28px',
-            letterSpacing: '-0.03em',
-            color: 'rgba(26, 26, 26, 1)'
+            fontFamily: 'Inter',
+            fontSize: '26px',
+            fontWeight: 600,
+            lineHeight: '1.2',
+            letterSpacing: '-0.04em',
+            color: '#001A31'
           }}
         >
           Dashboard
@@ -39,11 +41,12 @@ const DashboardPage = () => {
         <p 
           className="mt-1"
           style={{
+            fontFamily: 'Inter',
             fontSize: '16px',
             fontWeight: 400,
-            lineHeight: '24px',
-            letterSpacing: '-0.03em',
-            color: 'rgba(87, 87, 87, 1)'
+            lineHeight: '1.2',
+            letterSpacing: '-0.04em',
+            color: '#575757'
           }}
         >
           Welcome back! Here's an overview of your platform activity.
@@ -201,7 +204,7 @@ const DashboardPage = () => {
                   color: '#073370'
                 }}
               >
-                <Building2LineIcon style={{ width: '20px', height: '20px' }} />
+                <CurrencyLineIcon style={{ width: '20px', height: '20px' }} />
               </div>
               <p 
                 style={{
