@@ -17,7 +17,6 @@ const AdCard = ({ ad, onEdit }) => {
       className="bg-white rounded-lg border hover:shadow-md transition-shadow cursor-pointer flex flex-col"
       style={{
         width: '100%',
-        maxWidth: '368px',
         borderRadius: '8px',
         borderWidth: '1px',
         borderColor: 'rgba(229, 229, 229, 1)',

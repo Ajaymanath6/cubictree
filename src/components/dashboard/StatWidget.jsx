@@ -45,7 +45,6 @@ const StatWidget = ({
       className="bg-white rounded-lg border overflow-hidden w-full"
       style={{
         minWidth: '280px',
-        maxWidth: '368px',
         height: '131px',
         gap: '16px',
         borderRadius: '12px',
