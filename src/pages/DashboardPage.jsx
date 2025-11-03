@@ -5,6 +5,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 import AuctionLineIcon from 'remixicon-react/AuctionLineIcon';
 import BroadcastLineIcon from 'remixicon-react/BroadcastLineIcon';
 import StackLineIcon from 'remixicon-react/StackLineIcon';
+import Building2LineIcon from 'remixicon-react/Building2LineIcon';
 import AlertLineIcon from 'remixicon-react/AlertLineIcon';
 import GroupLineIcon from 'remixicon-react/GroupLineIcon';
 
