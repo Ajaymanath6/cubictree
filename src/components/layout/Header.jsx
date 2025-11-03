@@ -24,8 +24,9 @@ const Header = () => {
             <input
               type="text"
               placeholder="Search for anything"
-              className="w-full rounded-lg focus:outline-none focus:ring-2 focus:border-transparent"
+              className="w-full focus:outline-none focus:ring-2 focus:border-transparent"
               style={{
+                borderRadius: '4px',
                 height: '36px',
                 paddingTop: '6px',
                 paddingBottom: '6px',
@@ -56,9 +57,6 @@ const Header = () => {
         <div className="flex items-center gap-2 md:gap-3 pl-2 md:pl-4 border-l border-gray-200">
           <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: '#073370' }}>
             <UserLineIcon className="w-5 h-5 text-white" />
-          </div>
-          <div className="hidden md:block">
-            <p className="text-sm font-medium text-gray-900">John Doe</p>
           </div>
         </div>
       </div>

@@ -117,8 +117,9 @@ const AuctionsPage = () => {
               placeholder="Search by auction ID or asset name..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full rounded-lg focus:outline-none focus:ring-2 focus:border-transparent"
+              className="w-full focus:outline-none focus:ring-2 focus:border-transparent"
               style={{
+                borderRadius: '4px',
                 height: '36px',
                 paddingTop: '6px',
                 paddingBottom: '6px',

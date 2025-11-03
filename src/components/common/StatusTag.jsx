@@ -54,7 +54,7 @@ const StatusTag = ({ status }) => {
       style={{
         height: '24px',
         gap: '4px',
-        borderRadius: '8px',
+        borderRadius: '4px',
         borderWidth: '1px',
         paddingTop: '2px',
         paddingRight: '6px',

@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
  * @param {string} props.className - Additional CSS classes
  */
 const Button = ({ variant = 'primary', children, onClick, icon: Icon, className = '' }) => {
-  const baseStyles = 'rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+  const baseStyles = 'font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
   
   const variantStyles = {
     primary: 'text-white hover:opacity-90 focus:ring-2',
@@ -44,6 +44,7 @@ const Button = ({ variant = 'primary', children, onClick, icon: Icon, className 
       className={`${combinedStyles} ${flexStyles}`}
       style={{
         ...getVariantStyle(),
+        borderRadius: '4px',
         height: '36px',
         paddingTop: '6px',
         paddingBottom: '6px',
